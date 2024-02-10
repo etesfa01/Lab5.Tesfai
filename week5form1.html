@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form 1</title>
+  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LfzYWwpAAAAADlLhbRdwnhNgPz-hMJCRn6BNxiZ"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      padding-bottom: 2px;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+        background: lightseagreen;
+        background-size: 400% 400%;
+        height: 100vh;
+    }
+
+    .form-box {
+      max-width: 650px;
+      width: 100%;
+      background: white;
+      margin: 50px auto;
+      box-shadow: black;
+      padding: 30px;
+      border-radius: 1em;
+      border-width: 5px;
+      border-style: solid;
+    }
+
+    .form-box .title {
+      font-size: 28px;
+      font-weight: 900;
+      margin-bottom: 25px;
+      color: red;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .form-box .form .form-field {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .form-box .form .form-field label {
+      width: 200px;
+      color: darkred;
+      margin-right: 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .form-box .form .form-field .input,
+    .form-box .form .form-field .textarea {
+      width: 100%;
+      outline: none;
+      border: 1px solid red;
+      font-size: 15px;
+      padding: 8px 10px;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .form-box .form .form-field .textarea {
+      width: 100%;
+      height: 125px;
+      resize: none;
+    }
+
+    .form-box .form .form-field .state_select {
+      position: relative;
+      width: 100%;
+      height: 37px;
+    }
+
+    .form-box .form .form-field .state_select:before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      right: 10px;
+      border: 8px solid;
+      border-color: red transparent transparent transparent;
+      pointer-events: none;
+    }
+
+    .form-box .form .form-field .state_select select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      outline: none;
+      width: 100%;
+      height: 100%;
+      border: 0px;
+      padding: 8px 10px;
+      font-size: 15px;
+      border: 1px solid red;
+      border-radius: 3px;
+    }
+
+    .form-box .form .form-field .check .checkmark:before {
+      content: "";
+      position: absolute;
+      top: 1px;
+      left: 2px;
+      width: 5px;
+      height: 2px;
+      border: 2px solid;
+      display: none;
+    }
+
+</style>
+</head>
+<body>
+  <div class="form-box">
+    <div class="title">Student Registration Form</div>
+    <form action="POST" data-netlify="true">
+      <div class="form">
+
+        <div class="form-field">
+          <label>First Name</label>
+          <input type="text" class="input" id="name" name="fname" placeholder="Enter first name" required>
+        </div>
+
+        <div class="form-field">
+          <label>Last Name</label>
+          <input type="text" class="input" id="name" name="lname" placeholder="Enter last name" required>
+        </div>
+
+        <div class="form-field" id="gender">
+          <label for="">Gender</label>
+          <input type="radio" name="gender" id="radio" value="Male">Male
+          <input type="radio" name="gender" id="radio" value="Female">Female
+        </div>
+
+        <div class="form-field">
+          <label for="">Age</label>
+          <input type="text" class="input" name="age" placeholder="Enter your age"
+            required placeholder="Enter your age">
+        </div>
+
+        <div class="form-field">
+          <label for="">Date of Birth</label>
+          <input type="date" class="input" name="birth" required>
+        </div>
+
+        <div class="form-field">
+          <label>Email Address</label>
+          <input type="email" class="input" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-field">
+          <label>Password</label>
+          <input type="password" class="input" id="password" name="" placeholder="Enter your password min 8 characters"
+            minlength="8" required>
+        </div>
+
+        <div class="form-field">
+          <label>Confirm Password</label>
+          <input type="password" class="input" id="confirm-password" name=""
+            placeholder="Confirm password" minlength="8" required>
+        </div>
+
+        <div class="form-field">
+          <label for="">Phone Number</label>
+          <div class="state_select" id="area-code">
+            <select id="area-code">
+              <option value="+91">+91</option>
+            </select>
+          </div>
+          <input type="tel" class="input" name="phone-number" maxlength="10" id="phone-number"
+            placeholder="Enter your phone number">
+        </div>
+
+        <div class="form-field">
+          <label>Address</label>
+          <textarea class="textarea" name="address" id="" cols="30" rows="5" placeholder="Enter your address"
+            maxlength="50" required></textarea>
+        </div>
+
+        <div class="form-field">
+          <label>State</label>
+          <div class="state_select">
+            <select id="state" name="state" required>
+                <option value="">--Select your state--</option>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="CA">California</option>
+                <option value="FL">Florida</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label>Pin Code</label>
+          <input type="text" class="input" name="pincode" placeholder="Enter your pin code" maxlength="6" 
+          required>
+        </div>
+
+        <div class="form-field" id="hobbies" >
+          <label for="">Hobbies</label>
+          <div class="hobbies" >
+            <input type="checkbox" name="Hobbies" id="" value="Music">
+            <label for="">Music</label>
+            <input type="checkbox" name="Hobbies" id="" value="Movies">
+            <label for="">Movies</label>
+            <input type="checkbox" name="Hobbies" id="" value="Sports">
+            <label for="">Sports</label>
+            <input type="checkbox" name="Hobbies" id="" value="Travel">
+            <label for="">Travel</label>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label>Upload Photo</label><p id="file-size">*Max size 100kb.</p>
+          <input type="file" name="myfile" id="myfile" placeholder="Upload your photo" rows="7" required />
+          
+        </div>
+
+        <div class="form-field terms">
+          <label class="check">
+            <input type="checkbox" name="check" value="Declared" required>
+            <span class="checkmark"></span>
+          </label>
+          <p>I hereby declare that the above information provided is true and correct.</p>
+        </div>
+
+        <div class="g-recaptcha" 
+            data-sitekey="6LfzYWwpAAAAADlLhbRdwnhNgPz-hMJCRn6BNxiZ">
+            </div>
+
+        <div class="form-field btns" id="btn">
+          <button type="submit" value="Register" class="btn" onclick="checkPassword()">Register</button>
+          <button type="reset" value="Reset" class="btn">Reset</button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+  <script>
+    async function onClick(e) {
+      e.preventDefault();
+      await grecaptcha.enterprise.ready ();
+      const token = await grecaptcha.enterprise.execute('6LfzYWwpAAAAADlLhbRdwnhNgPz-hMJCRn6BNxiZ', {action: 'submit'});
+      document.querySelector('form').submit();
+    }
+  </script>
+
+</body>
+
+</html>
